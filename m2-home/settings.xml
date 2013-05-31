@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <mirrors>
+    <mirror>
+      <id>central</id>
+      <name>Central</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/central/</url>
+      <mirrorOf>central</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>maven2-repository.dev.java.net</id>
+      <name>Java.net Repository for Maven</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/maven2-repository.dev.java.net/</url>
+      <mirrorOf>maven2-repository.dev.java.net</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>apache-snapshots</id>
+      <name>Apache Snapshots</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/apache-snapshots/</url>
+      <mirrorOf>apache-snapshots</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>servicemix</id>
+      <name>Apache ServiceMix mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/servicemix/</url>
+      <mirrorOf>servicemix</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>opennms-repo</id>
+      <name>OpenNMS Maven mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/opennms-repo/</url>
+      <mirrorOf>opennms-repo</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>opennms-snapshots</id>
+      <name>OpenNMS Maven Snapshot mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/opennms-snapshots/</url>
+      <mirrorOf>opennms-snapshots</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>jboss-repo</id>
+      <name>JBoss mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/jboss-repo/</url>
+      <mirrorOf>jboss-repo</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>jboss</id>
+      <name>JBOSS</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/jboss/</url>
+      <mirrorOf>jboss</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>maven-repo</id>
+      <name>Maven Central</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/maven-repo/</url>
+      <mirrorOf>maven-repo</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>maven2-mirror.eviware.com</id>
+      <name>EVIWare.com mirror for Maven</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/maven2-repository.eviware.com/</url>
+      <mirrorOf>maven2-mirror.eviware.com</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>coova</id>
+      <name>Coova mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/coova/</url>
+      <mirrorOf>coova</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>sonatype-public-repo</id>
+      <name>Sonatype Public Maven mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/sonatype-public-repo/</url>
+      <mirrorOf>sonatype-public-repo</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>oracleReleases</id>
+      <name>Oracle Released Java Packages</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/oracleReleases/</url>
+      <mirrorOf>oracleReleases</mirrorOf>
+    </mirror>
+    <!--
+    <mirror>
+      <id>twitter4j.org</id>
+      <name>twitter4j.org mirror</name>
+      <url>http://maven.opennms.org/content/repositories/twitter4j.org-release/</url>
+    </mirror>
+  -->
+    <mirror>
+      <id>vaadin-snapshots</id>
+      <name>vaadin-snapshots</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/vaadin-snapshots/</url>
+      <mirrorOf>vaadin-snapshots</mirrorOf>
+    </mirror>
+    <!--
+    <mirror>
+      <id>vaadin-addons</id>
+      <name>vaadin-addons</name>
+      <url>http://maven.vaadin.com/vaadin-addons/</url>
+    </mirror>
+  -->
+    <mirror>
+      <id>ops4j.releases</id>
+      <name>ops4j.releases</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/ops4j.releases/</url>
+      <mirrorOf>ops4j.releases</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>com.springsource.mirror.bundles</id>
+      <name>SpringSource Enterprise Bundle mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/com.springsource.repository.bundles/</url>
+      <mirrorOf>com.springsource.mirror.bundles</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>atlassian-public</id>
+      <name>Atlassian public repo</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/atlassian-public/</url>
+      <mirrorOf>atlassian-public</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>sourceforge</id>
+      <name>Sourceforge OSSbeans Release mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/sourceforge/</url>
+      <mirrorOf>sourceforge</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>helios</id>
+      <name>helios-p2</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/helios/</url>
+      <mirrorOf>helios</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>m2e</id>
+      <name>m2e-p2</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/m2e/</url>
+      <mirrorOf>m2e</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>codehaus-snapshots</id>
+      <name>Codehaus Snapshots</name>
+      <url>http://maven.opennms-edu.net/nexus/content/repositories/codehaus-snapshots/</url>
+      <mirrorOf>codehaus-snapshots</mirrorOf>
+    </mirror>
+    <!--
+    <mirror>
+      <id>tip-repo</id>
+      <name>tip-repo</name>
+      <url>http://tip.opennms.org/content/repositories/tip-repo/</url>
+    </mirror>
+    <mirror>
+      <id>tip-snapshot</id>
+      <name>tip-snapshot</name>
+      <url>http://tip.opennms.org/content/repositories/tip-snapshot/</url>
+    </mirror>
+  -->
+  <!-- 
+    <mirror>
+      <id>nexus</id>
+      <name>Nexus Public Release Mirror</name>
+      <url>http://maven.opennms-edu.net/nexus/content/groups/public</url>
+      <mirrorOf>*</mirrorOf>
+     </mirror>
+  -->
+  </mirrors>
+</settings>
