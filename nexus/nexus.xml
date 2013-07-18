@@ -1687,6 +1687,194 @@
         </property>
       </properties>
     </task>
+    <task>
+      <id>200</id>
+      <name>Clean Up Unused Artifacts</name>
+      <enabled>true</enabled>
+      <type>EvictUnusedProxiedItemsTask</type>
+      <status>SUBMITTED</status>
+      <nextRun>1374127200000</nextRun>
+      <schedule>
+        <type>daily</type>
+        <startDate>1374040800000</startDate>
+      </schedule>
+      <properties>
+        <property>
+          <key>.name</key>
+          <value>Clean Up Unused Artifacts</value>
+        </property>
+        <property>
+          <key>.id</key>
+          <value>200</value>
+        </property>
+        <property>
+          <key>evictOlderCacheItemsThen</key>
+          <value>15</value>
+        </property>
+        <property>
+          <key>repositoryId</key>
+          <value>all_repo</value>
+        </property>
+      </properties>
+    </task>
+    <task>
+      <id>201</id>
+      <name>Remove Old Snapshots</name>
+      <enabled>true</enabled>
+      <type>SnapshotRemoverTask</type>
+      <status>SUBMITTED</status>
+      <nextRun>1374127200000</nextRun>
+      <schedule>
+        <type>daily</type>
+        <startDate>1374040800000</startDate>
+      </schedule>
+      <properties>
+        <property>
+          <key>minSnapshotsToKeep</key>
+          <value>2</value>
+        </property>
+        <property>
+          <key>.name</key>
+          <value>Remove Old Snapshots</value>
+        </property>
+        <property>
+          <key>.id</key>
+          <value>201</value>
+        </property>
+        <property>
+          <key>removeIfReleaseExists</key>
+          <value>false</value>
+        </property>
+        <property>
+          <key>deleteImmediately</key>
+          <value>false</value>
+        </property>
+        <property>
+          <key>removeOlderThanDays</key>
+          <value>15</value>
+        </property>
+        <property>
+          <key>graceDaysAfterRelease</key>
+          <value></value>
+        </property>
+        <property>
+          <key>repositoryId</key>
+          <value>all_repo</value>
+        </property>
+      </properties>
+    </task>
+    <task>
+      <id>202</id>
+      <name>Repair Repositories</name>
+      <enabled>true</enabled>
+      <type>RepairIndexTask</type>
+      <status>SUBMITTED</status>
+      <nextRun>1374134400000</nextRun>
+      <schedule>
+        <type>daily</type>
+        <startDate>1374048000000</startDate>
+      </schedule>
+      <properties>
+        <property>
+          <key>.name</key>
+          <value>Repair Repositories</value>
+        </property>
+        <property>
+          <key>.id</key>
+          <value>202</value>
+        </property>
+        <property>
+          <key>repositoryId</key>
+          <value>all_repo</value>
+        </property>
+        <property>
+          <key>resourceStorePath</key>
+          <value></value>
+        </property>
+      </properties>
+    </task>
+    <task>
+      <id>203</id>
+      <name>Empty Trash</name>
+      <enabled>true</enabled>
+      <type>EmptyTrashTask</type>
+      <status>SUBMITTED</status>
+      <nextRun>1374141600000</nextRun>
+      <schedule>
+        <type>daily</type>
+        <startDate>1374055200000</startDate>
+      </schedule>
+      <properties>
+        <property>
+          <key>.name</key>
+          <value>Empty Trash</value>
+        </property>
+        <property>
+          <key>.id</key>
+          <value>203</value>
+        </property>
+        <property>
+          <key>EmptyTrashItemsOlderThan</key>
+          <value>15</value>
+        </property>
+      </properties>
+    </task>
+    <task>
+      <id>204</id>
+      <name>Optimize Repositories</name>
+      <enabled>true</enabled>
+      <type>OptimizeIndexTask</type>
+      <status>SUBMITTED</status>
+      <nextRun>1374228900000</nextRun>
+      <schedule>
+        <type>daily</type>
+        <startDate>1374056100000</startDate>
+      </schedule>
+      <properties>
+        <property>
+          <key>.name</key>
+          <value>Optimize Repositories</value>
+        </property>
+        <property>
+          <key>.id</key>
+          <value>204</value>
+        </property>
+        <property>
+          <key>repositoryId</key>
+          <value>all_repo</value>
+        </property>
+      </properties>
+    </task>
+    <task>
+      <id>205</id>
+      <name>Update Repositories</name>
+      <enabled>true</enabled>
+      <type>UpdateIndexTask</type>
+      <status>SUBMITTED</status>
+      <nextRun>1374221700000</nextRun>
+      <schedule>
+        <type>daily</type>
+        <startDate>1374048900000</startDate>
+      </schedule>
+      <properties>
+        <property>
+          <key>.name</key>
+          <value>Update Repositories</value>
+        </property>
+        <property>
+          <key>.id</key>
+          <value>205</value>
+        </property>
+        <property>
+          <key>repositoryId</key>
+          <value>all_repo</value>
+        </property>
+        <property>
+          <key>resourceStorePath</key>
+          <value></value>
+        </property>
+      </properties>
+    </task>
   </tasks>
   <smtpConfiguration>
     <hostname>smtp-host</hostname>
