@@ -1507,7 +1507,7 @@
     </task>
     <task>
       <id>89</id>
-      <name>Health Check: sourceforge</name>
+      <name>Health Check: openoss-repo</name>
       <enabled>true</enabled>
       <type>HealthCheckTask</type>
       <status>WAITING</status>
@@ -1519,11 +1519,11 @@
       <properties>
         <property>
           <key>repoId</key>
-          <value>sourceforge</value>
+          <value>openoss-repo</value>
         </property>
         <property>
           <key>.name</key>
-          <value>Health Check: sourceforge</value>
+          <value>Health Check: openoss-repo</value>
         </property>
         <property>
           <key>.id</key>
