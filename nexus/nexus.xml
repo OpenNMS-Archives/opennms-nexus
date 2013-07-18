@@ -240,13 +240,16 @@
           <memberRepository>jboss-repo</memberRepository>
           <memberRepository>m2e</memberRepository>
           <memberRepository>maven-repo</memberRepository>
+          <memberRepository>opennms-releases</memberRepository>
           <memberRepository>opennms-repo</memberRepository>
           <memberRepository>opennms-snapshots</memberRepository>
+          <memberRepository>openoss-repo</memberRepository>
           <memberRepository>ops4j.releases</memberRepository>
+          <memberRepository>onejar-maven-plugin.googlecode.com</memberRepository>
           <memberRepository>oracleReleases</memberRepository>
           <memberRepository>sonatype-public-repo</memberRepository>
-          <memberRepository>sourceforge</memberRepository>
-          <memberRepository>com.springsource.repository.bundles</memberRepository>
+          <memberRepository>com.springsource.repository.bundles.external</memberRepository>
+          <memberRepository>com.springsource.repository.bundles.release</memberRepository>
           <memberRepository>tip-repo</memberRepository>
           <memberRepository>tip-snapshot</memberRepository>
           <memberRepository>twitter4j.org</memberRepository>
@@ -304,7 +307,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/opennms.org-release/</url>
+        <url>http://repo.opennms.org:8080/maven2/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
@@ -313,6 +316,37 @@
         <downloadRemoteIndex>true</downloadRemoteIndex>
         <artifactMaxAge>-1</artifactMaxAge>
         <metadataMaxAge>1440</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>opennms-releases</id>
+      <name>OpenNMS Release Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>60</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://repo.opennms.org:8080/releases/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>120</artifactMaxAge>
+        <metadataMaxAge>60</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
       </externalConfiguration>
@@ -490,7 +524,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/opennms.org-snapshot/</url>
+        <url>http://repo.opennms.org:8080/snapshots/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>SNAPSHOT</repositoryPolicy>
@@ -725,13 +759,13 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>com.springsource.repository.bundles</id>
-      <name>SpringSource Enterprise Bundle Repository</name>
+      <id>onejar-maven-plugin.googlecode.com</id>
+      <name>OneJar Maven Plugin Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -742,17 +776,101 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/springsource.com-release/</url>
+        <url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>com.springsource.repository.bundles.external</id>
+      <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://repository.springsource.com/maven/bundles/external/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>com.springsource.repository.bundles.release</id>
+      <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://repository.springsource.com/maven/bundles/release/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>springsource.com-release</id>
+      <name>SpringSource Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>com.springsource.repository.bundles.external</memberRepository>
+          <memberRepository>com.springsource.repository.bundles.release</memberRepository>
+        </memberRepositories>
       </externalConfiguration>
     </repository>
     <repository>
@@ -787,7 +905,7 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>sourceforge</id>
+      <id>openoss-repo</id>
       <name>Sourceforge OSSbeans Release Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
@@ -1259,7 +1377,7 @@
     </task>
     <task>
       <id>80</id>
-      <name>Health Check: com.springsource.repository.bundles</name>
+      <name>Health Check: com.springsource.repository.bundles.external</name>
       <enabled>true</enabled>
       <type>HealthCheckTask</type>
       <status>WAITING</status>
@@ -1271,15 +1389,41 @@
       <properties>
         <property>
           <key>repoId</key>
-          <value>com.springsource.repository.bundles</value>
+          <value>com.springsource.repository.bundles.external</value>
         </property>
         <property>
           <key>.name</key>
-          <value>Health Check: com.springsource.repository.bundles</value>
+          <value>Health Check: com.springsource.repository.bundles.external</value>
         </property>
         <property>
           <key>.id</key>
           <value>80</value>
+        </property>
+      </properties>
+    </task>
+    <task>
+      <id>81</id>
+      <name>Health Check: com.springsource.repository.bundles.release</name>
+      <enabled>true</enabled>
+      <type>HealthCheckTask</type>
+      <status>WAITING</status>
+      <nextRun>1370004830361</nextRun>
+      <schedule>
+        <type>hourly</type>
+        <startDate>1370004830361</startDate>
+      </schedule>
+      <properties>
+        <property>
+          <key>repoId</key>
+          <value>com.springsource.repository.bundles.release</value>
+        </property>
+        <property>
+          <key>.name</key>
+          <value>Health Check: com.springsource.repository.bundles.release</value>
+        </property>
+        <property>
+          <key>.id</key>
+          <value>81</value>
         </property>
       </properties>
     </task>

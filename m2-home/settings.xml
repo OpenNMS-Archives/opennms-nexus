@@ -4,79 +4,73 @@
     <mirror>
       <id>central</id>
       <name>Central</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/central/</url>
-      <mirrorOf>central</mirrorOf>
+      <url>http://localhost:8081/nexus/content/repositories/central/</url>
+      <mirrorOf>central,maven-repo</mirrorOf>
     </mirror>
     <mirror>
       <id>maven2-repository.dev.java.net</id>
       <name>Java.net Repository for Maven</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/maven2-repository.dev.java.net/</url>
+      <url>http://localhost:8081/nexus/content/repositories/maven2-repository.dev.java.net/</url>
       <mirrorOf>maven2-repository.dev.java.net</mirrorOf>
     </mirror>
     <mirror>
       <id>apache-snapshots</id>
       <name>Apache Snapshots</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/apache-snapshots/</url>
+      <url>http://localhost:8081/nexus/content/repositories/apache-snapshots/</url>
       <mirrorOf>apache-snapshots</mirrorOf>
     </mirror>
     <mirror>
       <id>servicemix</id>
       <name>Apache ServiceMix mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/servicemix/</url>
+      <url>http://localhost:8081/nexus/content/repositories/servicemix/</url>
       <mirrorOf>servicemix</mirrorOf>
     </mirror>
     <mirror>
       <id>opennms-repo</id>
       <name>OpenNMS Maven mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/opennms-repo/</url>
+      <url>http://localhost:8081/nexus/content/repositories/opennms-repo/</url>
       <mirrorOf>opennms-repo</mirrorOf>
     </mirror>
     <mirror>
       <id>opennms-snapshots</id>
       <name>OpenNMS Maven Snapshot mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/opennms-snapshots/</url>
+      <url>http://localhost:8081/nexus/content/repositories/opennms-snapshots/</url>
       <mirrorOf>opennms-snapshots</mirrorOf>
     </mirror>
     <mirror>
       <id>jboss-repo</id>
       <name>JBoss mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/jboss-repo/</url>
+      <url>http://localhost:8081/nexus/content/repositories/jboss-repo/</url>
       <mirrorOf>jboss-repo</mirrorOf>
     </mirror>
     <mirror>
       <id>jboss</id>
       <name>JBOSS</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/jboss/</url>
+      <url>http://localhost:8081/nexus/content/repositories/jboss/</url>
       <mirrorOf>jboss</mirrorOf>
-    </mirror>
-    <mirror>
-      <id>maven-repo</id>
-      <name>Maven Central</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/maven-repo/</url>
-      <mirrorOf>maven-repo</mirrorOf>
     </mirror>
     <mirror>
       <id>maven2-mirror.eviware.com</id>
       <name>EVIWare.com mirror for Maven</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/maven2-repository.eviware.com/</url>
+      <url>http://localhost:8081/nexus/content/repositories/maven2-repository.eviware.com/</url>
       <mirrorOf>maven2-mirror.eviware.com</mirrorOf>
     </mirror>
     <mirror>
       <id>coova</id>
       <name>Coova mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/coova/</url>
+      <url>http://localhost:8081/nexus/content/repositories/coova/</url>
       <mirrorOf>coova</mirrorOf>
     </mirror>
     <mirror>
       <id>sonatype-public-repo</id>
       <name>Sonatype Public Maven mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/sonatype-public-repo/</url>
+      <url>http://localhost:8081/nexus/content/repositories/sonatype-public-repo/</url>
       <mirrorOf>sonatype-public-repo</mirrorOf>
     </mirror>
     <mirror>
       <id>oracleReleases</id>
       <name>Oracle Released Java Packages</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/oracleReleases/</url>
+      <url>http://localhost:8081/nexus/content/repositories/oracleReleases/</url>
       <mirrorOf>oracleReleases</mirrorOf>
     </mirror>
     <!--
@@ -89,57 +83,67 @@
     <mirror>
       <id>vaadin-snapshots</id>
       <name>vaadin-snapshots</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/vaadin-snapshots/</url>
+      <url>http://localhost:8081/nexus/content/repositories/vaadin-snapshots/</url>
       <mirrorOf>vaadin-snapshots</mirrorOf>
     </mirror>
-    <!--
     <mirror>
       <id>vaadin-addons</id>
       <name>vaadin-addons</name>
-      <url>http://maven.vaadin.com/vaadin-addons/</url>
+      <url>http://localhost:8081/nexus/content/groups/vaadin.com-addons/</url>
     </mirror>
-  -->
     <mirror>
       <id>ops4j.releases</id>
       <name>ops4j.releases</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/ops4j.releases/</url>
+      <url>http://localhost:8081/nexus/content/repositories/ops4j.releases/</url>
       <mirrorOf>ops4j.releases</mirrorOf>
     </mirror>
     <mirror>
       <id>com.springsource.mirror.bundles</id>
       <name>SpringSource Enterprise Bundle mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/com.springsource.repository.bundles/</url>
+      <url>http://localhost:8081/nexus/content/repositories/com.springsource.repository.bundles/</url>
       <mirrorOf>com.springsource.mirror.bundles</mirrorOf>
     </mirror>
     <mirror>
       <id>atlassian-public</id>
       <name>Atlassian public repo</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/atlassian-public/</url>
+      <url>http://localhost:8081/nexus/content/repositories/atlassian-public/</url>
       <mirrorOf>atlassian-public</mirrorOf>
     </mirror>
     <mirror>
       <id>sourceforge</id>
       <name>Sourceforge OSSbeans Release mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/sourceforge/</url>
+      <url>http://localhost:8081/nexus/content/repositories/sourceforge/</url>
       <mirrorOf>sourceforge</mirrorOf>
     </mirror>
     <mirror>
       <id>helios</id>
       <name>helios-p2</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/helios/</url>
+      <url>http://localhost:8081/nexus/content/repositories/helios/</url>
       <mirrorOf>helios</mirrorOf>
     </mirror>
     <mirror>
       <id>m2e</id>
       <name>m2e-p2</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/m2e/</url>
+      <url>http://localhost:8081/nexus/content/repositories/m2e/</url>
       <mirrorOf>m2e</mirrorOf>
     </mirror>
     <mirror>
       <id>codehaus-snapshots</id>
       <name>Codehaus Snapshots</name>
-      <url>http://maven.opennms-edu.net/nexus/content/repositories/codehaus-snapshots/</url>
+      <url>http://localhost:8081/nexus/content/repositories/codehaus-snapshots/</url>
       <mirrorOf>codehaus-snapshots</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>onejar</id>
+      <name>OneJar Maven Repository</name>
+      <url>http://localhost:8081/nexus/content/groups/onejar.googlecode.com-release/</url>
+      <mirrorOf>onejar-maven-plugin.googlecode.com</mirrorOf>
+    </mirror>
+    <mirror>
+      <id>openoss</id>
+      <name>OpenOSS Maven Repository</name>
+      <url>http://localhost:8081/nexus/content/groups/openoss.sourceforge.net-release/</url>
+      <mirrorOf>onejar-maven-plugin.googlecode.com</mirrorOf>
     </mirror>
     <!--
     <mirror>
@@ -157,7 +161,7 @@
     <mirror>
       <id>nexus</id>
       <name>Nexus Public Release Mirror</name>
-      <url>http://maven.opennms-edu.net/nexus/content/groups/public</url>
+      <url>http://localhost:8081/nexus/content/groups/public</url>
       <mirrorOf>*</mirrorOf>
      </mirror>
   -->
