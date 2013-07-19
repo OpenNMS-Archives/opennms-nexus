@@ -247,6 +247,7 @@
           <memberRepository>ops4j.releases</memberRepository>
           <memberRepository>onejar-maven-plugin.googlecode.com</memberRepository>
           <memberRepository>oracleReleases</memberRepository>
+          <memberRepository>smslib-repo</memberRepository>
           <memberRepository>sonatype-public-repo</memberRepository>
           <memberRepository>com.springsource.repository.bundles.external</memberRepository>
           <memberRepository>com.springsource.repository.bundles.release</memberRepository>
@@ -569,7 +570,38 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>sonatype-public-repo</id>
+      <id>smslib-repo</id>
+      <name>Sc Maven Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://smslib.org/maven2/v3/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>-1</artifactMaxAge>
+        <metadataMaxAge>1440</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>sonatype-public-release</id>
       <name>Sonatype Public Maven Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
@@ -1268,6 +1300,32 @@
         <property>
           <key>.id</key>
           <value>69</value>
+        </property>
+      </properties>
+    </task>
+    <task>
+      <id>70</id>
+      <name>Health Check: smslib-repo</name>
+      <enabled>true</enabled>
+      <type>HealthCheckTask</type>
+      <status>WAITING</status>
+      <nextRun>1370004295403</nextRun>
+      <schedule>
+        <type>hourly</type>
+        <startDate>1370004295403</startDate>
+      </schedule>
+      <properties>
+        <property>
+          <key>repoId</key>
+          <value>smslib-repo</value>
+        </property>
+        <property>
+          <key>.name</key>
+          <value>Health Check: smslib-repo</value>
+        </property>
+        <property>
+          <key>.id</key>
+          <value>70</value>
         </property>
       </properties>
     </task>

@@ -68,6 +68,12 @@
       <mirrorOf>sonatype-public-repo</mirrorOf>
     </mirror>
     <mirror>
+      <id>smslib-repo</id>
+      <name>SMSLib Maven mirror</name>
+      <url>http://localhost:8081/nexus/content/repositories/smslib-repo/</url>
+      <mirrorOf>smslib-repo</mirrorOf>
+    </mirror>
+    <mirror>
       <id>oracleReleases</id>
       <name>Oracle Released Java Packages</name>
       <url>http://localhost:8081/nexus/content/repositories/oracleReleases/</url>
