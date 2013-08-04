@@ -248,7 +248,7 @@
           <memberRepository>onejar-maven-plugin.googlecode.com</memberRepository>
           <memberRepository>oracleReleases</memberRepository>
           <memberRepository>smslib-repo</memberRepository>
-          <memberRepository>sonatype-public-repo</memberRepository>
+          <memberRepository>sonatype-public-release</memberRepository>
           <memberRepository>com.springsource.repository.bundles.external</memberRepository>
           <memberRepository>com.springsource.repository.bundles.release</memberRepository>
           <memberRepository>tip-repo</memberRepository>
@@ -1279,7 +1279,7 @@
     </task>
     <task>
       <id>69</id>
-      <name>Health Check: sonatype-public-repo</name>
+      <name>Health Check: sonatype-public-release</name>
       <enabled>true</enabled>
       <type>HealthCheckTask</type>
       <status>WAITING</status>
@@ -1291,11 +1291,11 @@
       <properties>
         <property>
           <key>repoId</key>
-          <value>sonatype-public-repo</value>
+          <value>sonatype-public-release</value>
         </property>
         <property>
           <key>.name</key>
-          <value>Health Check: sonatype-public-repo</value>
+          <value>Health Check: sonatype-public-release</value>
         </property>
         <property>
           <key>.id</key>
