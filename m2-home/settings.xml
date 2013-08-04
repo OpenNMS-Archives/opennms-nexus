@@ -95,7 +95,8 @@
     <mirror>
       <id>vaadin-addons</id>
       <name>vaadin-addons</name>
-      <url>http://localhost:8081/nexus/content/groups/vaadin.com-addons/</url>
+      <url>http://localhost:8081/nexus/content/repositories/vaadin-addons/</url>
+      <mirrorOf>vaadin-addons</mirrorOf>
     </mirror>
     <mirror>
       <id>ops4j.releases</id>
