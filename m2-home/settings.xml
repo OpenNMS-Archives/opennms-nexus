@@ -111,6 +111,12 @@
       <mirrorOf>com.springsource.mirror.bundles</mirrorOf>
     </mirror>
     <mirror>
+      <id>springsource.com-release</id>
+      <name>SpringSource Release</name>
+      <url>http://localhost:8081/nexus/content/groups/springsource.com-release/</url>
+      <mirrorOf>springsource.com-release</mirrorOf>
+    </mirror>
+    <mirror>
       <id>atlassian-public</id>
       <name>Atlassian public repo</name>
       <url>http://localhost:8081/nexus/content/repositories/atlassian-public/</url>
@@ -147,7 +153,7 @@
       <mirrorOf>onejar-maven-plugin.googlecode.com</mirrorOf>
     </mirror>
     <mirror>
-      <id>openoss</id>
+      <id>openoss-repo</id>
       <name>OpenOSS Maven Repository</name>
       <url>http://localhost:8081/nexus/content/groups/openoss.sourceforge.net-release/</url>
       <mirrorOf>onejar-maven-plugin.googlecode.com</mirrorOf>
