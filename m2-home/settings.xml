@@ -155,8 +155,8 @@
     <mirror>
       <id>openoss-repo</id>
       <name>OpenOSS Maven Repository</name>
-      <url>http://localhost:8081/nexus/content/groups/openoss.sourceforge.net-release/</url>
-      <mirrorOf>onejar-maven-plugin.googlecode.com</mirrorOf>
+      <url>http://localhost:8081/nexus/content/repositories/openoss-repo/</url>
+      <mirrorOf>openoss-repo</mirrorOf>
     </mirror>
     <mirror>
       <id>maven-restlet</id>
