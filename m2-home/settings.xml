@@ -65,7 +65,7 @@
       <id>sonatype-public-repo</id>
       <name>Sonatype Public Maven mirror</name>
       <url>http://localhost:8081/nexus/content/repositories/sonatype-public-repo/</url>
-      <mirrorOf>sonatype-public-repo</mirrorOf>
+      <mirrorOf>sonatype-public-repo,sonatype-public-release</mirrorOf>
     </mirror>
     <mirror>
       <id>smslib-repo</id>
@@ -114,7 +114,7 @@
       <id>springsource.com-release</id>
       <name>SpringSource Release</name>
       <url>http://localhost:8081/nexus/content/groups/springsource.com-release/</url>
-      <mirrorOf>springsource.com-release</mirrorOf>
+      <mirrorOf>springsource.com-release,com.springsource.repository.bundles.release,com.springsource.repository.bundles.external</mirrorOf>
     </mirror>
     <mirror>
       <id>atlassian-public</id>
