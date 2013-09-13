@@ -256,6 +256,7 @@
           <memberRepository>twitter4j.org</memberRepository>
           <memberRepository>vaadin-addons</memberRepository>
           <memberRepository>vaadin-snapshots</memberRepository>
+          <memberRepository>maven-restlet</memberRepository>
         </memberRepositories>
       </externalConfiguration>
     </repository>
@@ -1091,6 +1092,37 @@
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
         <proxyMode>BLOCKED_AUTO</proxyMode>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>maven-restlet</id>
+      <name>Restlet Public Online Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://maven.restlet.org/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>false</downloadRemoteIndex>
+        <artifactMaxAge>-1</artifactMaxAge>
+        <metadataMaxAge>1440</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>false</autoBlockActive>
       </externalConfiguration>
     </repository>
   </repositories>

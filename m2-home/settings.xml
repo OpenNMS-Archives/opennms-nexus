@@ -158,6 +158,12 @@
       <url>http://localhost:8081/nexus/content/groups/openoss.sourceforge.net-release/</url>
       <mirrorOf>onejar-maven-plugin.googlecode.com</mirrorOf>
     </mirror>
+    <mirror>
+      <id>maven-restlet</id>
+      <name>Restlet public online repository</name>
+      <url>http://localhost:8081/nexus/content/repositories/maven-restlet/</url>
+      <mirrorOf>maven-restlet</mirrorOf>
+    </mirror>
     <!--
     <mirror>
       <id>tip-repo</id>
