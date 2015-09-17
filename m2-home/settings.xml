@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <settings>
   <mirrors>
+     <mirror>
+	<id>jaspersoft-third-party</id>
+	<url>http://localhost:8081/nexus/content/repositories/jaspersoft-third-party/</url>
+	<mirrorOf>jaspersoft-third-party</mirrorOf>
+    </mirror>
+     <mirror>
+        <id>jasperreports</id>
+        <url>http://localhost:8081/nexus/content/repositories/jasperreports</url>
+        <mirrorOf>jasperreports</mirrorOf>
+    </mirror>
+    <mirror>
+        <id>eclipselink.repository</id>
+        <name>EclipseLink Maven Repository</name>
+        <url>http://localhost:8081/nexus/content/repositories/eclipselink.repository</url>
+        <mirrorOf>eclipselink.repository</mirrorOf>
+    </mirror>
     <mirror>
       <id>central</id>
       <name>Central</name>
@@ -28,26 +44,28 @@
     <mirror>
       <id>opennms-repo</id>
       <name>OpenNMS Maven mirror</name>
-      <url>http://localhost:8081/nexus/content/repositories/opennms-repo/</url>
+      <url>http://localhost:8081/nexus/content/repositories/opennms-repo-local/</url>
       <mirrorOf>opennms-repo</mirrorOf>
     </mirror>
+    <mirror>
+      <id>opennms-3rdparty-repo</id>
+      <name>OpenNMS 3rd Party</name>
+      <url>http://localhost:8081/nexus/content/repositories/thirdparty</url>
+      <mirrorOf>opennms-3rdparty-repo</mirrorOf>
+    </mirror>
+<!--
     <mirror>
       <id>opennms-snapshots</id>
       <name>OpenNMS Maven Snapshot mirror</name>
       <url>http://localhost:8081/nexus/content/repositories/opennms-snapshots/</url>
       <mirrorOf>opennms-snapshots</mirrorOf>
     </mirror>
+-->
     <mirror>
-      <id>jboss-repo</id>
-      <name>JBoss mirror</name>
-      <url>http://localhost:8081/nexus/content/repositories/jboss-repo/</url>
-      <mirrorOf>jboss-repo</mirrorOf>
-    </mirror>
-    <mirror>
-      <id>jboss</id>
-      <name>JBOSS</name>
-      <url>http://localhost:8081/nexus/content/repositories/jboss/</url>
-      <mirrorOf>jboss</mirrorOf>
+      <id>repository.jboss.org</id>
+      <name>Jboss Public Repository Group</name>
+      <url>http://localhost:8081/nexus/content/repositories/jboss-public-repository-group/</url>
+      <mirrorOf>repository.jboss.org,jboss-repo,jboss-public-repository-group</mirrorOf>
     </mirror>
     <mirror>
       <id>maven2-mirror.eviware.com</id>
@@ -60,6 +78,12 @@
       <name>Coova mirror</name>
       <url>http://localhost:8081/nexus/content/repositories/coova/</url>
       <mirrorOf>coova</mirrorOf>
+    </mirror>
+  <mirror>
+      <id>sonatype.org-snapshot</id>
+      <name>Sonatype Snapshots Maven mirror</name>
+      <url>http://localhost:8081/nexus/content/repositories/sonatype-nexus-snapshots/</url>
+      <mirrorOf>sonatype.org-snapshot</mirrorOf>
     </mirror>
     <mirror>
       <id>sonatype-public-repo</id>
@@ -79,13 +103,6 @@
       <url>http://localhost:8081/nexus/content/repositories/oracleReleases/</url>
       <mirrorOf>oracleReleases</mirrorOf>
     </mirror>
-    <!--
-    <mirror>
-      <id>twitter4j.org</id>
-      <name>twitter4j.org mirror</name>
-      <url>http://maven.opennms.org/content/repositories/twitter4j.org-release/</url>
-    </mirror>
-  -->
     <mirror>
       <id>vaadin-snapshots</id>
       <name>vaadin-snapshots</name>
@@ -164,25 +181,5 @@
       <url>http://localhost:8081/nexus/content/repositories/maven-restlet/</url>
       <mirrorOf>maven-restlet</mirrorOf>
     </mirror>
-    <!--
-    <mirror>
-      <id>tip-repo</id>
-      <name>tip-repo</name>
-      <url>http://tip.opennms.org/content/repositories/tip-repo/</url>
-    </mirror>
-    <mirror>
-      <id>tip-snapshot</id>
-      <name>tip-snapshot</name>
-      <url>http://tip.opennms.org/content/repositories/tip-snapshot/</url>
-    </mirror>
-  -->
-  <!-- 
-    <mirror>
-      <id>nexus</id>
-      <name>Nexus Public Release Mirror</name>
-      <url>http://localhost:8081/nexus/content/groups/public</url>
-      <mirrorOf>*</mirrorOf>
-     </mirror>
-  -->
   </mirrors>
 </settings>
