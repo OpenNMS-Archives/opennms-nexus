@@ -1,0 +1,23 @@
+= opennms-nexus
+
+Repository for building a nexus maven proxy building OpenNMS.
+
+NOTE: The current setup DOES NOT proxy dependencies in opennms-snapshot.
+
+== How To Use
+1. Download the latest Nexus tar.gz from [http://www.sonatype.org/nexus/archived/](http://www.sonatype.org/nexus/archived/) to `/opt`
+- Untar the downloaded archive
+  - nexus-X.X.X
+  - sonatype-work
+
+2. Create the nexus conf directory: `mkdir -p sonatype-work/nexus/conf`
+3. Copy the nexus/nexus.xml file from here to the sonatype-work/nexus/conf/ directory.
+4. Start nexus.
+5. Copy m2-home/settings.xml to ~/.m2/ if you don't have one already.  If you do
+6. already have one, copy the mirrors section to your existing config.
+
+== TODO
+- Figure out if excluding the opennms-snapshot (disabling it) was the right move
+- Add tasks as maven.opennms.org does to ensure integrity
+- Figure out what to do with the broken cav repository
+- .m2/ettings.xml should be easier -> `<mirrorOf>*</mirrorOf>` in addition with a public-release group or something like that
