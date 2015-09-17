@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nexusConfiguration>
-  <version>2.2.0</version>
-  <nexusVersion>2.4.0-09</nexusVersion>
+  <version>2.8.0</version>
+  <nexusVersion>2.11.4-01</nexusVersion>
   <globalConnectionSettings>
     <connectionTimeout>20000</connectionTimeout>
     <retrievalRetryCount>3</retrievalRetryCount>
@@ -47,6 +47,8 @@
         <downloadRemoteIndex>false</downloadRemoteIndex>
         <checksumPolicy>WARN</checksumPolicy>
         <repositoryPolicy>RELEASE</repositoryPolicy>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
@@ -77,6 +79,8 @@
         <downloadRemoteIndex>false</downloadRemoteIndex>
         <checksumPolicy>WARN</checksumPolicy>
         <repositoryPolicy>SNAPSHOT</repositoryPolicy>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
@@ -84,7 +88,7 @@
       <name>Codehaus Snapshots</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
+      <localStatus>OUT_OF_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
       <notFoundCacheTTL>1440</notFoundCacheTTL>
       <userManaged>true</userManaged>
@@ -100,13 +104,15 @@
         <url>http://nexus.codehaus.org/snapshots/</url>
       </remoteStorage>
       <externalConfiguration>
-        <proxyMode>ALLOW</proxyMode>
+        <proxyMode>BLOCKED_AUTO</proxyMode>
         <artifactMaxAge>1440</artifactMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <cleanseRepositoryMetadata>false</cleanseRepositoryMetadata>
         <downloadRemoteIndex>false</downloadRemoteIndex>
         <checksumPolicy>WARN</checksumPolicy>
         <repositoryPolicy>SNAPSHOT</repositoryPolicy>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
@@ -163,7 +169,7 @@
     </repository>
     <repository>
       <id>thirdparty</id>
-      <name>3rd party</name>
+      <name>OpenNMS 3rd Party</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -171,12 +177,15 @@
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
-      <writePolicy>ALLOW_WRITE_ONCE</writePolicy>
+      <writePolicy>READ_ONLY</writePolicy>
       <indexable>true</indexable>
       <searchable>true</searchable>
       <localStorage>
         <provider>file</provider>
       </localStorage>
+      <remoteStorage>
+        <url>http://repo.opennms.org:8080/3rdparty/</url>
+      </remoteStorage>
       <externalConfiguration>
         <proxyMode>ALLOW</proxyMode>
         <artifactMaxAge>-1</artifactMaxAge>
@@ -228,160 +237,7 @@
           <memberRepository>snapshots</memberRepository>
           <memberRepository>thirdparty</memberRepository>
           <memberRepository>central</memberRepository>
-          <memberRepository>servicemix</memberRepository>
-          <memberRepository>apache-snapshots</memberRepository>
-          <memberRepository>atlassian-public</memberRepository>
-          <memberRepository>codehaus-snapshots</memberRepository>
-          <memberRepository>coova</memberRepository>
-          <memberRepository>maven2-repository.eviware.com</memberRepository>
-          <memberRepository>helios</memberRepository>
-          <memberRepository>maven2-repository.dev.java.net</memberRepository>
-          <memberRepository>jboss</memberRepository>
-          <memberRepository>jboss-repo</memberRepository>
-          <memberRepository>m2e</memberRepository>
-          <memberRepository>maven-repo</memberRepository>
-          <memberRepository>opennms-releases</memberRepository>
-          <memberRepository>opennms-repo</memberRepository>
-          <memberRepository>opennms-snapshots</memberRepository>
-          <memberRepository>openoss-repo</memberRepository>
-          <memberRepository>ops4j.releases</memberRepository>
-          <memberRepository>onejar-maven-plugin.googlecode.com</memberRepository>
-          <memberRepository>oracleReleases</memberRepository>
-          <memberRepository>smslib-repo</memberRepository>
-          <memberRepository>sonatype-public-release</memberRepository>
-          <memberRepository>com.springsource.repository.bundles.external</memberRepository>
-          <memberRepository>com.springsource.repository.bundles.release</memberRepository>
-          <memberRepository>tip-repo</memberRepository>
-          <memberRepository>tip-snapshot</memberRepository>
-          <memberRepository>twitter4j.org</memberRepository>
-          <memberRepository>vaadin-addons</memberRepository>
-          <memberRepository>vaadin-snapshots</memberRepository>
-          <memberRepository>maven-restlet</memberRepository>
         </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>servicemix</id>
-      <name>Apache ServiceMix Repository</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://svn.apache.org/repos/asf/servicemix/m2-repo/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>opennms-repo</id>
-      <name>OpenNMS Maven Repository</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://repo.opennms.org:8080/maven2/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>opennms-releases</id>
-      <name>OpenNMS Release Repository</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>60</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://repo.opennms.org:8080/releases/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>120</artifactMaxAge>
-        <metadataMaxAge>60</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>jboss-repo</id>
-      <name>JBoss Repository</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/jboss.com-release/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
       </externalConfiguration>
     </repository>
     <repository>
@@ -391,7 +247,7 @@
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -402,27 +258,30 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/java.net-release/</url>
+        <url>https://maven.java.net/content/groups/public/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
+        <checksumPolicy>STRICT_IF_EXISTS</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>maven-repo</id>
-      <name>Maven Central</name>
+      <id>jboss-repo</id>
+      <name>JBoss Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -433,48 +292,20 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/maven.org-release2/</url>
+        <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
+        <checksumPolicy>STRICT_IF_EXISTS</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>maven2-repository.eviware.com</id>
-      <name>EVIWare.com Repository for Maven</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/eviware.com-release/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
@@ -495,114 +326,24 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/coova-release/</url>
+        <url>http://maven.opennms.org/content/repositories/coova/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
+        <checksumPolicy>STRICT_IF_EXISTS</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
         <artifactMaxAge>-1</artifactMaxAge>
         <metadataMaxAge>1440</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>opennms-snapshots</id>
-      <name>OpenNMS Maven Snapshot Repository</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://repo.opennms.org:8080/snapshots/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>SNAPSHOT</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>1440</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>jboss</id>
-      <name>JBOSS</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/jboss.com-release/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>smslib-repo</id>
-      <name>Sc Maven Repository</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://smslib.org/maven2/v3/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>sonatype-public-release</id>
+      <id>sonatype-public-repo</id>
       <name>Sonatype Public Maven Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
@@ -619,91 +360,30 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/sonatype.org-release/</url>
+        <url>http://repository.sonatype.org/content/groups/public/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
+        <checksumPolicy>STRICT_IF_EXISTS</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
         <artifactMaxAge>-1</artifactMaxAge>
         <metadataMaxAge>1440</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>oracleReleases</id>
-      <name>Oracle Released Java Packages</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/oracle.com-release/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>twitter4j.org</id>
-      <name>twitter4j.org Repository</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://maven.opennms.org/content/repositories/twitter4j.org-release/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
         <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
         <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>vaadin-snapshots</id>
-      <name>vaadin-snapshots</name>
+      <id>ops4j.releases</id>
+      <name>OPS4J Releases</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -714,81 +394,20 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+        <url>http://repository.ops4j.org/maven2/</url>
       </remoteStorage>
       <externalConfiguration>
-        <repositoryPolicy>SNAPSHOT</repositoryPolicy>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
         <artifactMaxAge>1440</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>vaadin-addons</id>
-      <name>vaadin-addons</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://maven.vaadin.com/vaadin-addons/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
-        <routingDiscoveryEnabled>true</routingDiscoveryEnabled>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
         <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>ops4j.releases</id>
-      <name>ops4j.releases</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/ops4j.org-release/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-        <checksumPolicy>WARN</checksumPolicy>
-        <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>true</autoBlockActive>
       </externalConfiguration>
     </repository>
     <repository>
@@ -820,11 +439,14 @@
         <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>com.springsource.repository.bundles.external</id>
-      <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+      <id>openoss-repo</id>
+      <name>OpenOSS Maven2 Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -840,7 +462,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://repository.springsource.com/maven/bundles/external/</url>
+        <url>http://openoss.sourceforge.net/m2repo/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
@@ -851,11 +473,14 @@
         <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>com.springsource.repository.bundles.release</id>
-      <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+      <id>atlassian-public</id>
+      <name>Atlassian public Repo</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -871,7 +496,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://repository.springsource.com/maven/bundles/release/</url>
+        <url>https://maven.atlassian.com/repository/public/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
@@ -882,6 +507,221 @@
         <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>coova-release</id>
+      <name>Coova Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>coova</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>java.net-release</id>
+      <name>Java.net Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>maven2-repository.dev.java.net</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>jboss.com-release</id>
+      <name>JBoss Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>jboss-repo</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>maven.org-release2</id>
+      <name>Maven Central</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>central</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>onejar.googlecode.com-release</id>
+      <name>OneJar Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>onejar-maven-plugin.googlecode.com</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>opennms.org-release</id>
+      <name>OpenNMS Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>opennms-repo-local</memberRepository>
+          <memberRepository>opennms-releases-local</memberRepository>
+          <memberRepository>thirdparty</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>opennms.org-snapshot</id>
+      <name>OpenNMS Snapshot</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>opennms-snapshots-local</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>openoss.sourceforge.net-release</id>
+      <name>OpenOSS Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>openoss-repo</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>ops4j.org-release</id>
+      <name>OPS4J Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>ops4j.releases</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>sonatype.org-release</id>
+      <name>Sonatype Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>sonatype-public-repo</memberRepository>
+        </memberRepositories>
       </externalConfiguration>
     </repository>
     <repository>
@@ -907,13 +747,13 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>atlassian-public</id>
-      <name>Atlassian public repo</name>
+      <id>com.springsource.repository.bundles.external</id>
+      <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>60</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -924,27 +764,30 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
+        <url>http://repository.springsource.com/maven/bundles/external/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>openoss-repo</id>
-      <name>Sourceforge OSSbeans Release Repository</name>
+      <id>com.springsource.repository.bundles.release</id>
+      <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>60</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -955,27 +798,30 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.opennms.org/content/groups/openoss.sourceforge.net-release/</url>
+        <url>http://repository.springsource.com/maven/bundles/release/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>helios</id>
-      <name>helios-p2</name>
+      <id>vaadin-addons</id>
+      <name>Vaadin Addons Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -986,27 +832,51 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://download.eclipse.org/releases/indigo/</url>
+        <url>http://maven.vaadin.com/vaadin-addons/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>m2e</id>
-      <name>m2e-p2</name>
+      <id>vaadin.com-addons</id>
+      <name>Vaadin Addons Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>vaadin-addons</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>servicemix</id>
+      <name>Apache ServiceMix Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -1017,27 +887,226 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://download.eclipse.org/technology/m2e/releases/</url>
+        <url>http://svn.apache.org/repos/asf/servicemix/m2-repo/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>tip-repo</id>
-      <name>tip-repo</name>
+      <id>servicemix-release</id>
+      <name>Apache ServiceMix Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>servicemix</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>vaadin-snapshots</id>
+      <name>Vaadin Snapshot Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>SNAPSHOT</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
+        <proxyMode>ALLOW</proxyMode>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>vaadin-snapshot</id>
+      <name>Vaadin Snapshot</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>vaadin-snapshots</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>codehaus.org-snapshot</id>
+      <name>Codehaus Snapshot</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>codehaus-snapshots</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>atlassian.com-release</id>
+      <name>Atlassian Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>atlassian-public</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>smslib-repo</id>
+      <name>SMSLib Maven Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://smslib.org/maven2/v3/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
+        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>smslib.org-release</id>
+      <name>SMSLib Release</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>smslib-repo</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>opennms-repo-local</id>
+      <name>OpenNMS Maven2 Repository (Local)</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>10</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://repo.opennms.org:8080/maven2/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <proxyMode>ALLOW</proxyMode>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>opennms-releases-local</id>
+      <name>OpenNMS Release Repository (Local)</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>OUT_OF_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <notFoundCacheTTL>10</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
       <browseable>true</browseable>
@@ -1048,26 +1117,164 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://tip.opennms.org/content/repositories/tip-repo/</url>
+        <url>http://repo.opennms.org:8080/releases/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <proxyMode>ALLOW</proxyMode>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>opennms-snapshots-local</id>
+      <name>OpenNMS Snapshots (Local)</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>OUT_OF_SERVICE</localStatus>
+      <notFoundCacheTTL>10</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://repo.opennms.org:8080/snapshots/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>SNAPSHOT</repositoryPolicy>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>everything</id>
+      <name>Everything</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>opennms.org-snapshot</memberRepository>
+          <memberRepository>opennms.org-release</memberRepository>
+          <memberRepository>servicemix-release</memberRepository>
+          <memberRepository>atlassian.com-release</memberRepository>
+          <memberRepository>codehaus.org-snapshot</memberRepository>
+          <memberRepository>coova-release</memberRepository>
+          <memberRepository>onejar.googlecode.com-release</memberRepository>
+          <memberRepository>openoss.sourceforge.net-release</memberRepository>
+          <memberRepository>ops4j.org-release</memberRepository>
+          <memberRepository>smslib.org-release</memberRepository>
+          <memberRepository>sonatype.org-release</memberRepository>
+          <memberRepository>springsource.com-release</memberRepository>
+          <memberRepository>vaadin.com-addons</memberRepository>
+          <memberRepository>vaadin-snapshot</memberRepository>
+          <memberRepository>java.net-release</memberRepository>
+          <memberRepository>jboss.com-release</memberRepository>
+          <memberRepository>maven.org-release2</memberRepository>
+          <memberRepository>codehaus-snapshots</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://repository.jboss.org/nexus/content/repositories/public/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
         <downloadRemoteIndex>true</downloadRemoteIndex>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <metadataMaxAge>1440</metadataMaxAge>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
-        <proxyMode>BLOCKED_AUTO</proxyMode>
+        <proxyMode>ALLOW</proxyMode>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>tip-snapshot</id>
-      <name>tip-snapshot</name>
+      <id>jboss-deprecated</id>
+      <name>JBoss Deprecated Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
-      <localStatus>OUT_OF_SERVICE</localStatus>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>720</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://repository.jboss.org/nexus/content/repositories/deprecated/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>1440</artifactMaxAge>
+        <metadataMaxAge>720</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>sonatype.org-snapshot</id>
+      <name>Sonatype Snapshot</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>sonatype-nexus-snapshots</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype Snapshot Maven Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheActive>true</notFoundCacheActive>
       <notFoundCacheTTL>1440</notFoundCacheTTL>
       <userManaged>true</userManaged>
@@ -1080,7 +1287,7 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://tip.opennms.org/content/repositories/tip-snapshot/</url>
+        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>SNAPSHOT</repositoryPolicy>
@@ -1091,12 +1298,12 @@
         <metadataMaxAge>1440</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
-        <proxyMode>BLOCKED_AUTO</proxyMode>
+        <proxyMode>ALLOW</proxyMode>
       </externalConfiguration>
     </repository>
     <repository>
-      <id>maven-restlet</id>
-      <name>Restlet Public Online Repository</name>
+      <id>jasperreports</id>
+      <name>Jasper Reports Maven Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
       <localStatus>IN_SERVICE</localStatus>
@@ -1112,17 +1319,80 @@
         <provider>file</provider>
       </localStorage>
       <remoteStorage>
-        <url>http://maven.restlet.org/</url>
+        <url>http://jasperreports.sourceforge.net/maven2/</url>
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>RELEASE</repositoryPolicy>
         <checksumPolicy>WARN</checksumPolicy>
         <fileTypeValidation>true</fileTypeValidation>
-        <downloadRemoteIndex>false</downloadRemoteIndex>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
         <artifactMaxAge>-1</artifactMaxAge>
         <metadataMaxAge>1440</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
-        <autoBlockActive>false</autoBlockActive>
+        <autoBlockActive>true</autoBlockActive>
+        <proxyMode>ALLOW</proxyMode>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>jaspersoft-third-party</id>
+      <name>JasperSoft Third Party Maven Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>-1</artifactMaxAge>
+        <metadataMaxAge>1440</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>eclipselink.repository</id>
+      <name>EcliplseLink Maven Repository</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheActive>true</notFoundCacheActive>
+      <notFoundCacheTTL>1440</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <searchable>true</searchable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <remoteStorage>
+        <url>http://download.eclipse.org/rt/eclipselink/maven.repo/</url>
+      </remoteStorage>
+      <externalConfiguration>
+        <repositoryPolicy>RELEASE</repositoryPolicy>
+        <checksumPolicy>WARN</checksumPolicy>
+        <fileTypeValidation>true</fileTypeValidation>
+        <downloadRemoteIndex>true</downloadRemoteIndex>
+        <artifactMaxAge>-1</artifactMaxAge>
+        <metadataMaxAge>1440</metadataMaxAge>
+        <itemMaxAge>1440</itemMaxAge>
+        <autoBlockActive>true</autoBlockActive>
       </externalConfiguration>
     </repository>
   </repositories>
@@ -1203,779 +1473,37 @@
         <pattern>.*</pattern>
       </patterns>
     </repositoryTarget>
+    <repositoryTarget>
+      <id>npm</id>
+      <name>All (npm)</name>
+      <contentClass>npm</contentClass>
+      <patterns>
+        <pattern>.*</pattern>
+      </patterns>
+    </repositoryTarget>
+    <repositoryTarget>
+      <id>nuget</id>
+      <name>All (nuget)</name>
+      <contentClass>nuget</contentClass>
+      <patterns>
+        <pattern>.*</pattern>
+      </patterns>
+    </repositoryTarget>
+    <repositoryTarget>
+      <id>rubygems</id>
+      <name>All (rubygems)</name>
+      <contentClass>rubygems</contentClass>
+      <patterns>
+        <pattern>.*</pattern>
+      </patterns>
+    </repositoryTarget>
   </repositoryTargets>
-  <tasks>
-    <task>
-      <id>50</id>
-      <name>Health Check: servicemix</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370001590064</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370001590064</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>servicemix</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: servicemix</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>50</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>53</id>
-      <name>Health Check: maven-repo</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370001865688</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370001865688</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>maven-repo</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: maven-repo</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>53</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>58</id>
-      <name>Health Check: maven2-repository.dev.java.net</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370003265973</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370003265973</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>maven2-repository.dev.java.net</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: maven2-repository.dev.java.net</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>58</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>67</id>
-      <name>Health Check: jboss</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004185118</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004185118</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>jboss</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: jboss</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>67</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>69</id>
-      <name>Health Check: sonatype-public-release</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004295403</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004295403</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>sonatype-public-release</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: sonatype-public-release</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>69</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>70</id>
-      <name>Health Check: smslib-repo</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004295403</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004295403</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>smslib-repo</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: smslib-repo</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>70</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>71</id>
-      <name>Health Check: oracleReleases</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004510110</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004510110</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>oracleReleases</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: oracleReleases</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>71</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>75</id>
-      <name>Health Check: twitter4j.org</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004665737</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004665737</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>twitter4j.org</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: twitter4j.org</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>75</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>76</id>
-      <name>Health Check: vaadin-addons</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004672620</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004672620</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>vaadin-addons</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: vaadin-addons</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>76</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>79</id>
-      <name>Health Check: ops4j.releases</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004806401</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004806401</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>ops4j.releases</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: ops4j.releases</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>79</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>80</id>
-      <name>Health Check: com.springsource.repository.bundles.external</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004830361</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004830361</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>com.springsource.repository.bundles.external</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: com.springsource.repository.bundles.external</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>80</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>81</id>
-      <name>Health Check: com.springsource.repository.bundles.release</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370004830361</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370004830361</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>com.springsource.repository.bundles.release</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: com.springsource.repository.bundles.release</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>81</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>82</id>
-      <name>Health Check: atlassian-public</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370005145422</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370005145422</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>atlassian-public</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: atlassian-public</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>82</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>85</id>
-      <name>Health Check: helios</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370005314625</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370005314625</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>helios</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: helios</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>85</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>87</id>
-      <name>Health Check: m2e</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370005338796</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370005338796</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>m2e</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: m2e</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>87</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>89</id>
-      <name>Health Check: openoss-repo</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370005375971</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370005375971</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>openoss-repo</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: openoss-repo</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>89</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>62</id>
-      <name>Health Check: maven2-repository.eviware.com</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370007303766</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370007303766</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>maven2-repository.eviware.com</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: maven2-repository.eviware.com</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>62</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>64</id>
-      <name>Health Check: coova</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370007326680</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370007326680</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>coova</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: coova</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>64</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>12</id>
-      <name>Health Check: central</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370011634520</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370011634520</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>central</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: central</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>12</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>16</id>
-      <name>Health Check: jboss-repo</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370012168971</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370012168971</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>jboss-repo</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: jboss-repo</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>16</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>17</id>
-      <name>Health Check: opennms-repo</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>WAITING</status>
-      <nextRun>1370029914027</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1370029914027</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>opennms-repo</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: opennms-repo</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>17</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>90</id>
-      <name>Health Check: tip-repo</name>
-      <enabled>true</enabled>
-      <type>HealthCheckTask</type>
-      <status>RUNNING</status>
-      <nextRun>1369993577635</nextRun>
-      <schedule>
-        <type>hourly</type>
-        <startDate>1368801977635</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>repoId</key>
-          <value>tip-repo</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Health Check: tip-repo</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>90</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>200</id>
-      <name>Clean Up Unused Artifacts</name>
-      <enabled>true</enabled>
-      <type>EvictUnusedProxiedItemsTask</type>
-      <status>SUBMITTED</status>
-      <nextRun>1374127200000</nextRun>
-      <schedule>
-        <type>daily</type>
-        <startDate>1374040800000</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>.name</key>
-          <value>Clean Up Unused Artifacts</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>200</value>
-        </property>
-        <property>
-          <key>evictOlderCacheItemsThen</key>
-          <value>15</value>
-        </property>
-        <property>
-          <key>repositoryId</key>
-          <value>all_repo</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>201</id>
-      <name>Remove Old Snapshots</name>
-      <enabled>true</enabled>
-      <type>SnapshotRemoverTask</type>
-      <status>SUBMITTED</status>
-      <nextRun>1374127200000</nextRun>
-      <schedule>
-        <type>daily</type>
-        <startDate>1374040800000</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>minSnapshotsToKeep</key>
-          <value>2</value>
-        </property>
-        <property>
-          <key>.name</key>
-          <value>Remove Old Snapshots</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>201</value>
-        </property>
-        <property>
-          <key>removeIfReleaseExists</key>
-          <value>false</value>
-        </property>
-        <property>
-          <key>deleteImmediately</key>
-          <value>false</value>
-        </property>
-        <property>
-          <key>removeOlderThanDays</key>
-          <value>15</value>
-        </property>
-        <property>
-          <key>graceDaysAfterRelease</key>
-          <value></value>
-        </property>
-        <property>
-          <key>repositoryId</key>
-          <value>all_repo</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>202</id>
-      <name>Repair Repositories</name>
-      <enabled>true</enabled>
-      <type>RepairIndexTask</type>
-      <status>SUBMITTED</status>
-      <nextRun>1374134400000</nextRun>
-      <schedule>
-        <type>daily</type>
-        <startDate>1374048000000</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>.name</key>
-          <value>Repair Repositories</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>202</value>
-        </property>
-        <property>
-          <key>repositoryId</key>
-          <value>all_repo</value>
-        </property>
-        <property>
-          <key>resourceStorePath</key>
-          <value></value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>203</id>
-      <name>Empty Trash</name>
-      <enabled>true</enabled>
-      <type>EmptyTrashTask</type>
-      <status>SUBMITTED</status>
-      <nextRun>1374141600000</nextRun>
-      <schedule>
-        <type>daily</type>
-        <startDate>1374055200000</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>.name</key>
-          <value>Empty Trash</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>203</value>
-        </property>
-        <property>
-          <key>EmptyTrashItemsOlderThan</key>
-          <value>15</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>204</id>
-      <name>Optimize Repositories</name>
-      <enabled>true</enabled>
-      <type>OptimizeIndexTask</type>
-      <status>SUBMITTED</status>
-      <nextRun>1374228900000</nextRun>
-      <schedule>
-        <type>daily</type>
-        <startDate>1374056100000</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>.name</key>
-          <value>Optimize Repositories</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>204</value>
-        </property>
-        <property>
-          <key>repositoryId</key>
-          <value>all_repo</value>
-        </property>
-      </properties>
-    </task>
-    <task>
-      <id>205</id>
-      <name>Update Repositories</name>
-      <enabled>true</enabled>
-      <type>UpdateIndexTask</type>
-      <status>SUBMITTED</status>
-      <nextRun>1374221700000</nextRun>
-      <schedule>
-        <type>daily</type>
-        <startDate>1374048900000</startDate>
-      </schedule>
-      <properties>
-        <property>
-          <key>.name</key>
-          <value>Update Repositories</value>
-        </property>
-        <property>
-          <key>.id</key>
-          <value>205</value>
-        </property>
-        <property>
-          <key>repositoryId</key>
-          <value>all_repo</value>
-        </property>
-        <property>
-          <key>resourceStorePath</key>
-          <value></value>
-        </property>
-      </properties>
-    </task>
-  </tasks>
   <smtpConfiguration>
     <hostname>smtp-host</hostname>
     <port>25</port>
     <username>smtp-username</username>
-    <password>{nJ1x+N7hB58HTn7yHSEdxHqxuQoTJ3EcsT+ZwIR2Xhw=}</password>
+    <password>{qsw6dSo/QIYHpNXo16W74Z0uW5SFpKK41SIjA/HUfTM=}</password>
     <systemEmailAddress>system@nexus.org</systemEmailAddress>
   </smtpConfiguration>
-  <errorReporting>
-    <jiraUrl>https://issues.sonatype.org</jiraUrl>
-    <jiraProject>PR</jiraProject>
-  </errorReporting>
   <notification />
 </nexusConfiguration>
