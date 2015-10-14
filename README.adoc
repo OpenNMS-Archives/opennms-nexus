@@ -5,19 +5,17 @@ Repository for building a nexus maven proxy building OpenNMS.
 NOTE: The current setup DOES NOT proxy dependencies in opennms-snapshot.
 
 == How To Use
-1. Download the latest Nexus tar.gz from [http://www.sonatype.org/nexus/archived/](http://www.sonatype.org/nexus/archived/) to `/opt`
-- Untar the downloaded archive
-  - nexus-X.X.X
-  - sonatype-work
 
-2. Create the nexus conf directory: `mkdir -p sonatype-work/nexus/conf`
-3. Copy the nexus/nexus.xml file from here to the sonatype-work/nexus/conf/ directory.
-4. Start nexus.
-5. Copy m2-home/settings.xml to ~/.m2/ if you don't have one already.  If you do
-6. already have one, copy the mirrors section to your existing config.
+1. Download the latest Nexus tar.gz from link:http://www.sonatype.org/nexus/archived/[] to `/opt`
+2. Untar the downloaded archive: `tar -xvf nexus-X.X.X`
+3. Create a working directory `mkdir -p /opt/sonatype-work`
+4. Create the nexus conf directory: `mkdir -p sonatype-work/nexus/conf`
+5. Copy the `nexus/nexus.xml` file from here to the `sonatype-work/nexus/conf/` directory.
+6. Copy the `nexus/wrapper.conf` file from here to `nexus/bin/jsw/conf/` directory and may modify it to your needs.
+7. Copy the `nexus/truststore.jks` file from here to `/etc/ssl/certs/java`directory.
+8. Start nexus.
+9. Copy `m2-home/settings.xml` to `~/.m2/` if you don't have one already. If you do already have one, copy the mirrors section to your existing config.
 
 == TODO
-- Figure out if excluding the opennms-snapshot (disabling it) was the right move
 - Add tasks as maven.opennms.org does to ensure integrity
-- Figure out what to do with the broken cav repository
-- .m2/ettings.xml should be easier -> `<mirrorOf>*</mirrorOf>` in addition with a public-release group or something like that
+- maybe we should just proxy maven.opennms.org instead of using the "real" repositories.

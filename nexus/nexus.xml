@@ -84,90 +84,6 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>codehaus-snapshots</id>
-      <name>Codehaus Snapshots</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>OUT_OF_SERVICE</localStatus>
-      <notFoundCacheActive>true</notFoundCacheActive>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <remoteStorage>
-        <url>http://nexus.codehaus.org/snapshots/</url>
-      </remoteStorage>
-      <externalConfiguration>
-        <proxyMode>BLOCKED_AUTO</proxyMode>
-        <artifactMaxAge>1440</artifactMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <cleanseRepositoryMetadata>false</cleanseRepositoryMetadata>
-        <downloadRemoteIndex>false</downloadRemoteIndex>
-        <checksumPolicy>WARN</checksumPolicy>
-        <repositoryPolicy>SNAPSHOT</repositoryPolicy>
-        <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
-        <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>releases</id>
-      <name>Releases</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>ALLOW_WRITE_ONCE</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <proxyMode>ALLOW</proxyMode>
-        <artifactMaxAge>-1</artifactMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <cleanseRepositoryMetadata>false</cleanseRepositoryMetadata>
-        <downloadRemoteIndex>false</downloadRemoteIndex>
-        <checksumPolicy>WARN</checksumPolicy>
-        <repositoryPolicy>RELEASE</repositoryPolicy>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>snapshots</id>
-      <name>Snapshots</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>1440</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>ALLOW_WRITE</writePolicy>
-      <indexable>true</indexable>
-      <searchable>true</searchable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <proxyMode>ALLOW</proxyMode>
-        <artifactMaxAge>1440</artifactMaxAge>
-        <itemMaxAge>1440</itemMaxAge>
-        <cleanseRepositoryMetadata>false</cleanseRepositoryMetadata>
-        <downloadRemoteIndex>false</downloadRemoteIndex>
-        <checksumPolicy>WARN</checksumPolicy>
-        <repositoryPolicy>SNAPSHOT</repositoryPolicy>
-      </externalConfiguration>
-    </repository>
-    <repository>
       <id>thirdparty</id>
       <name>OpenNMS 3rd Party</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
@@ -194,50 +110,6 @@
         <downloadRemoteIndex>false</downloadRemoteIndex>
         <checksumPolicy>WARN</checksumPolicy>
         <repositoryPolicy>RELEASE</repositoryPolicy>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>central-m1</id>
-      <name>Central M1 shadow</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.ShadowRepository</providerRole>
-      <providerHint>m2-m1-shadow</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <masterRepositoryId>central</masterRepositoryId>
-        <syncAtStartup>false</syncAtStartup>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>public</id>
-      <name>Public Repositories</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <mergeMetadata>true</mergeMetadata>
-        <memberRepositories>
-          <memberRepository>releases</memberRepository>
-          <memberRepository>snapshots</memberRepository>
-          <memberRepository>thirdparty</memberRepository>
-          <memberRepository>central</memberRepository>
-        </memberRepositories>
       </externalConfiguration>
     </repository>
     <repository>
@@ -513,240 +385,6 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>coova-release</id>
-      <name>Coova Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>coova</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>java.net-release</id>
-      <name>Java.net Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>maven2-repository.dev.java.net</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>jboss.com-release</id>
-      <name>JBoss Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>jboss-repo</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>maven.org-release2</id>
-      <name>Maven Central</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>central</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>onejar.googlecode.com-release</id>
-      <name>OneJar Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>onejar-maven-plugin.googlecode.com</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>opennms.org-release</id>
-      <name>OpenNMS Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>opennms-repo-local</memberRepository>
-          <memberRepository>opennms-releases-local</memberRepository>
-          <memberRepository>thirdparty</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>opennms.org-snapshot</id>
-      <name>OpenNMS Snapshot</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>opennms-snapshots-local</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>openoss.sourceforge.net-release</id>
-      <name>OpenOSS Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>openoss-repo</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>ops4j.org-release</id>
-      <name>OPS4J Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>ops4j.releases</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>sonatype.org-release</id>
-      <name>Sonatype Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>sonatype-public-repo</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>springsource.com-release</id>
-      <name>SpringSource Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>com.springsource.repository.bundles.external</memberRepository>
-          <memberRepository>com.springsource.repository.bundles.release</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
       <id>com.springsource.repository.bundles.external</id>
       <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
@@ -849,27 +487,6 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>vaadin.com-addons</id>
-      <name>Vaadin Addons Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>vaadin-addons</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
       <id>servicemix</id>
       <name>Apache ServiceMix Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
@@ -904,27 +521,6 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>servicemix-release</id>
-      <name>Apache ServiceMix Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>servicemix</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
       <id>vaadin-snapshots</id>
       <name>Vaadin Snapshot Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
@@ -955,70 +551,7 @@
         <autoBlockActive>true</autoBlockActive>
         <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
         <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
-        <proxyMode>ALLOW</proxyMode>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>vaadin-snapshot</id>
-      <name>Vaadin Snapshot</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>vaadin-snapshots</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>codehaus.org-snapshot</id>
-      <name>Codehaus Snapshot</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>codehaus-snapshots</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>atlassian.com-release</id>
-      <name>Atlassian Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>atlassian-public</memberRepository>
-        </memberRepositories>
+        <proxyMode>BLOCKED_AUTO</proxyMode>
       </externalConfiguration>
     </repository>
     <repository>
@@ -1053,27 +586,6 @@
         <proxyMode>ALLOW</proxyMode>
         <routingDiscoveryEnabled>false</routingDiscoveryEnabled>
         <routingDiscoveryInterval>86400000</routingDiscoveryInterval>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>smslib.org-release</id>
-      <name>SMSLib Release</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>smslib-repo</memberRepository>
-        </memberRepositories>
       </externalConfiguration>
     </repository>
     <repository>
@@ -1129,7 +641,7 @@
       <name>OpenNMS Snapshots (Local)</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
       <providerHint>maven2</providerHint>
-      <localStatus>OUT_OF_SERVICE</localStatus>
+      <localStatus>IN_SERVICE</localStatus>
       <notFoundCacheTTL>10</notFoundCacheTTL>
       <userManaged>true</userManaged>
       <exposed>true</exposed>
@@ -1145,44 +657,6 @@
       </remoteStorage>
       <externalConfiguration>
         <repositoryPolicy>SNAPSHOT</repositoryPolicy>
-      </externalConfiguration>
-    </repository>
-    <repository>
-      <id>everything</id>
-      <name>Everything</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>opennms.org-snapshot</memberRepository>
-          <memberRepository>opennms.org-release</memberRepository>
-          <memberRepository>servicemix-release</memberRepository>
-          <memberRepository>atlassian.com-release</memberRepository>
-          <memberRepository>codehaus.org-snapshot</memberRepository>
-          <memberRepository>coova-release</memberRepository>
-          <memberRepository>onejar.googlecode.com-release</memberRepository>
-          <memberRepository>openoss.sourceforge.net-release</memberRepository>
-          <memberRepository>ops4j.org-release</memberRepository>
-          <memberRepository>smslib.org-release</memberRepository>
-          <memberRepository>sonatype.org-release</memberRepository>
-          <memberRepository>springsource.com-release</memberRepository>
-          <memberRepository>vaadin.com-addons</memberRepository>
-          <memberRepository>vaadin-snapshot</memberRepository>
-          <memberRepository>java.net-release</memberRepository>
-          <memberRepository>jboss.com-release</memberRepository>
-          <memberRepository>maven.org-release2</memberRepository>
-          <memberRepository>codehaus-snapshots</memberRepository>
-        </memberRepositories>
       </externalConfiguration>
     </repository>
     <repository>
@@ -1249,27 +723,6 @@
       </externalConfiguration>
     </repository>
     <repository>
-      <id>sonatype.org-snapshot</id>
-      <name>Sonatype Snapshot</name>
-      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
-      <providerHint>maven2</providerHint>
-      <localStatus>IN_SERVICE</localStatus>
-      <notFoundCacheTTL>15</notFoundCacheTTL>
-      <userManaged>true</userManaged>
-      <exposed>true</exposed>
-      <browseable>true</browseable>
-      <writePolicy>READ_ONLY</writePolicy>
-      <indexable>true</indexable>
-      <localStorage>
-        <provider>file</provider>
-      </localStorage>
-      <externalConfiguration>
-        <memberRepositories>
-          <memberRepository>sonatype-nexus-snapshots</memberRepository>
-        </memberRepositories>
-      </externalConfiguration>
-    </repository>
-    <repository>
       <id>sonatype-nexus-snapshots</id>
       <name>Sonatype Snapshot Maven Repository</name>
       <providerRole>org.sonatype.nexus.proxy.repository.Repository</providerRole>
@@ -1298,7 +751,7 @@
         <metadataMaxAge>1440</metadataMaxAge>
         <itemMaxAge>1440</itemMaxAge>
         <autoBlockActive>true</autoBlockActive>
-        <proxyMode>ALLOW</proxyMode>
+        <proxyMode>BLOCKED_AUTO</proxyMode>
       </externalConfiguration>
     </repository>
     <repository>
@@ -1395,6 +848,92 @@
         <autoBlockActive>true</autoBlockActive>
       </externalConfiguration>
     </repository>
+    <repository>
+      <id>public</id>
+      <name>Public (Everything)</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>servicemix</memberRepository>
+          <memberRepository>apache-snapshots</memberRepository>
+          <memberRepository>central</memberRepository>
+          <memberRepository>coova</memberRepository>
+          <memberRepository>eclipselink.repository</memberRepository>
+          <memberRepository>jasperreports</memberRepository>
+          <memberRepository>jaspersoft-third-party</memberRepository>
+          <memberRepository>maven2-repository.dev.java.net</memberRepository>
+          <memberRepository>onejar-maven-plugin.googlecode.com</memberRepository>
+          <memberRepository>thirdparty</memberRepository>
+          <memberRepository>opennms-repo-local</memberRepository>
+          <memberRepository>opennms-releases-local</memberRepository>
+          <memberRepository>opennms-snapshots-local</memberRepository>
+          <memberRepository>openoss-repo</memberRepository>
+          <memberRepository>ops4j.releases</memberRepository>
+          <memberRepository>smslib-repo</memberRepository>
+          <memberRepository>sonatype-public-repo</memberRepository>
+          <memberRepository>sonatype-nexus-snapshots</memberRepository>
+          <memberRepository>com.springsource.repository.bundles.external</memberRepository>
+          <memberRepository>com.springsource.repository.bundles.release</memberRepository>
+          <memberRepository>vaadin-addons</memberRepository>
+          <memberRepository>vaadin-snapshots</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>public-jboss</id>
+      <name>Public (JBoss)</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>jboss-deprecated</memberRepository>
+          <memberRepository>jboss-public-repository-group</memberRepository>
+          <memberRepository>jboss-repo</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
+    <repository>
+      <id>public-atlassian</id>
+      <name>Public (Atlassian)</name>
+      <providerRole>org.sonatype.nexus.proxy.repository.GroupRepository</providerRole>
+      <providerHint>maven2</providerHint>
+      <localStatus>IN_SERVICE</localStatus>
+      <notFoundCacheTTL>15</notFoundCacheTTL>
+      <userManaged>true</userManaged>
+      <exposed>true</exposed>
+      <browseable>true</browseable>
+      <writePolicy>READ_ONLY</writePolicy>
+      <indexable>true</indexable>
+      <localStorage>
+        <provider>file</provider>
+      </localStorage>
+      <externalConfiguration>
+        <memberRepositories>
+          <memberRepository>atlassian-public</memberRepository>
+        </memberRepositories>
+      </externalConfiguration>
+    </repository>
   </repositories>
   <repositoryGrouping>
     <pathMappings>
@@ -1405,10 +944,6 @@
         <routePatterns>
           <routePattern>^/(com|org)/somecompany/.*</routePattern>
         </routePatterns>
-        <repositories>
-          <repository>snapshots</repository>
-          <repository>releases</repository>
-        </repositories>
       </pathMapping>
       <pathMapping>
         <id>apache-stuff</id>
@@ -1417,10 +952,6 @@
         <routePatterns>
           <routePattern>^/org/some-oss/.*</routePattern>
         </routePatterns>
-        <repositories>
-          <repository>releases</repository>
-          <repository>snapshots</repository>
-        </repositories>
       </pathMapping>
     </pathMappings>
   </repositoryGrouping>
@@ -1502,7 +1033,7 @@
     <hostname>smtp-host</hostname>
     <port>25</port>
     <username>smtp-username</username>
-    <password>{qsw6dSo/QIYHpNXo16W74Z0uW5SFpKK41SIjA/HUfTM=}</password>
+    <password>{YLv3+ZqZJtsHja4+SmdSO1hFeSyR4/I/guqxIqXbBEE=}</password>
     <systemEmailAddress>system@nexus.org</systemEmailAddress>
   </smtpConfiguration>
   <notification />
