@@ -1,8 +1,9 @@
 = opennms-nexus
 
-Repository for building a nexus maven proxy building OpenNMS.
+Repository to setup a nexus maven to increase build time of OpenNMS.
 
-NOTE: The current setup DOES NOT proxy dependencies in opennms-snapshot.
+NOTE: The configured nexus only mirrors the OpenNMS bits of the official OpenNMS maven repository.
+For all other 3rd party repositories the official repositories are used.
 
 == How To Use
 
